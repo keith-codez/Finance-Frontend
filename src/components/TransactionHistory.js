@@ -3,6 +3,8 @@ import axios from "axios";
 import { CurrencyContext } from "../context/CurrencyContext";
 import currencyFlags from "../utils/currencyFlags";
 
+const API_URL = "https://finance-app-api-9c7ca1127ebc.herokuapp.com/api";
+
 const TransactionHistory = () => {
   const [transactions, setTransactions] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -11,7 +13,7 @@ const TransactionHistory = () => {
   useEffect(() => {
     async function fetchTransactions() {
       try {
-        const response = await axios.get("http://127.0.0.1:8000/api/transactions/", {
+        const response = await axios.get(`${API_URL}api/transactions/`, {
           headers: { Authorization: `Bearer ${localStorage.getItem("access_token")}` },
         });
         setTransactions(response.data);
@@ -27,7 +29,7 @@ const TransactionHistory = () => {
 
   const downloadPDF = async () => {
     try {
-      const response = await axios.get("http://127.0.0.1:8000/api/transactions/pdf/", {
+      const response = await axios.get(`${API_URL}api/transactions/pdf/`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("access_token")}`,
         },

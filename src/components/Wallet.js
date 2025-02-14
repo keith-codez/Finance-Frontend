@@ -3,6 +3,7 @@ import axios from "axios";
 import { CurrencyContext } from "../context/CurrencyContext";
 
 import currencyFlags from "../utils/currencyFlags";
+const API_URL = "https://finance-app-api-9c7ca1127ebc.herokuapp.com/api";
 
 const WalletComponent = () => {
   const [balance, setBalance] = useState(0);
@@ -11,7 +12,7 @@ const WalletComponent = () => {
   useEffect(() => {
     async function fetchBalance() {
       try {
-        const response = await axios.get("http://127.0.0.1:8000/api/wallet/", {
+        const response = await axios.get(`${API_URL}/wallet/`, {
           headers: { Authorization: `Bearer ${localStorage.getItem("access_token")}` },
         });
         setBalance(response.data.balance);
