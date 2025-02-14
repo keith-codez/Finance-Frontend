@@ -13,7 +13,7 @@ const TransactionHistory = () => {
   useEffect(() => {
     async function fetchTransactions() {
       try {
-        const response = await axios.get(`${API_URL}api/transactions/`, {
+        const response = await axios.get(`${API_URL}/transactions/`, {
           headers: { Authorization: `Bearer ${localStorage.getItem("access_token")}` },
         });
         setTransactions(response.data);
@@ -29,7 +29,7 @@ const TransactionHistory = () => {
 
   const downloadPDF = async () => {
     try {
-      const response = await axios.get(`${API_URL}api/transactions/pdf/`, {
+      const response = await axios.get(`${API_URL}/transactions/pdf/`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("access_token")}`,
         },
