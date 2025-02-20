@@ -109,7 +109,7 @@ const TransactionHistory = () => {
                   )}
                   {selectedCurrency} {convertCurrency(transaction.amount)}
                 </td>
-                <td className={`px-4 py-2 border font-semibold ${transaction.transaction_type === "credit" ? "text-green-600" : "text-red-600"}`}>
+                <td className={`px-4 py-2 border font-semibold ${transaction.transaction_type === "credit" ? "text-red-600" : "text-green-600"}`}>
                   {transaction.transaction_type.charAt(0).toUpperCase() + transaction.transaction_type.slice(1)}
                 </td>
               </tr>
